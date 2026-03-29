@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Ethnic palette - warm cream background */
+    --background: 0.962 0.018 85;
+    --foreground: 0.18 0.04 30;
+
+    /* Cards - lighter cream */
+    --card: 0.978 0.012 88;
+    --card-foreground: 0.18 0.04 30;
+
+    --popover: 0.978 0.012 88;
+    --popover-foreground: 0.18 0.04 30;
+
+    /* Primary - deep burgundy */
+    --primary: 0.32 0.12 15;
+    --primary-foreground: 0.962 0.018 85;
+
+    /* Secondary - forest green */
+    --secondary: 0.28 0.07 155;
+    --secondary-foreground: 0.962 0.018 85;
+
+    /* Muted */
+    --muted: 0.93 0.02 80;
+    --muted-foreground: 0.5 0.03 40;
+
+    /* Accent - saffron gold */
+    --accent: 0.68 0.16 72;
+    --accent-foreground: 0.18 0.04 30;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.86 0.04 72;
+    --input: 0.9 0.025 80;
+    --ring: 0.68 0.16 72;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.32 0.12 15;
+    --sidebar-foreground: 0.962 0.018 85;
+    --sidebar-primary: 0.68 0.16 72;
+    --sidebar-primary-foreground: 0.18 0.04 30;
+    --sidebar-accent: 0.28 0.07 155;
+    --sidebar-accent-foreground: 0.962 0.018 85;
+    --sidebar-border: 0.45 0.08 20;
+    --sidebar-ring: 0.68 0.16 72;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Crimson Text", Georgia, serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Cinzel", serif;
+  }
+}
+
+@layer utilities {
+  .font-cinzel {
+    font-family: "Cinzel", serif;
+  }
+  .font-crimson {
+    font-family: "Crimson Text", Georgia, serif;
+  }
+
+  .ornate-border {
+    position: relative;
+  }
+  .ornate-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(0.68 0.16 72),
+      transparent
+    );
+  }
+
+  .gold-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.18 72),
+      oklch(0.62 0.14 58),
+      oklch(0.72 0.18 72)
+    );
+  }
+
+  .ethnic-card {
+    background: oklch(var(--card));
+    border: 1px solid oklch(0.86 0.04 72);
+    box-shadow: 0 4px 24px oklch(0.32 0.12 15 / 0.08), inset 0 0 0 1px
+      oklch(0.86 0.07 72 / 0.3);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .ethnic-card:hover {
+    box-shadow: 0 8px 40px oklch(0.32 0.12 15 / 0.15), inset 0 0 0 1px
+      oklch(0.68 0.16 72 / 0.6);
+    transform: translateY(-2px);
+  }
+
+  .section-heading {
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .btn-gold {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.18 72),
+      oklch(0.62 0.14 58)
+    );
+    color: oklch(0.18 0.04 30);
+    border-radius: 9999px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px oklch(0.62 0.14 58 / 0.4);
+  }
+  .btn-gold:hover {
+    background: linear-gradient(135deg, oklch(0.78 0.2 72), oklch(0.68 0.16 58));
+    box-shadow: 0 4px 20px oklch(0.62 0.14 58 / 0.6);
+    transform: translateY(-1px);
+  }
+
+  .btn-burgundy {
+    background: oklch(0.32 0.12 15);
+    color: oklch(0.962 0.018 85);
+    border-radius: 9999px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+  }
+  .btn-burgundy:hover {
+    background: oklch(0.28 0.1 15);
+    transform: translateY(-1px);
+  }
+
+  .mandala-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='50' fill='none' stroke='%23D4870A' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%23D4870A' stroke-width='0.5' opacity='0.15'/%3E%3Ccircle cx='60' cy='60' r='30' fill='none' stroke='%23D4870A' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M60 10 L65 55 L60 60 L55 55 Z' fill='%23D4870A' opacity='0.08'/%3E%3Cpath d='M60 110 L65 65 L60 60 L55 65 Z' fill='%23D4870A' opacity='0.08'/%3E%3Cpath d='M10 60 L55 65 L60 60 L55 55 Z' fill='%23D4870A' opacity='0.08'/%3E%3Cpath d='M110 60 L65 55 L60 60 L65 65 Z' fill='%23D4870A' opacity='0.08'/%3E%3Cpath d='M25 25 L57 57 L60 60 L57 63 L25 95' fill='none' stroke='%23D4870A' stroke-width='0.4' opacity='0.12'/%3E%3Cpath d='M95 25 L63 57 L60 60 L63 63 L95 95' fill='none' stroke='%23D4870A' stroke-width='0.4' opacity='0.12'/%3E%3Ccircle cx='60' cy='60' r='5' fill='none' stroke='%23D4870A' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
+  }
+}
